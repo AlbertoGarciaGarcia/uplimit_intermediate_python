@@ -115,15 +115,12 @@ class DataReader:
         # output generator -- use 'yield' keyword 
         # generate each row: dictionary comprehension
         
-        for n_row, row in enumerate(open(self._fp, "r")):
-            row_vals = row.strip('\n').split(self._sep)
-            
-            # define the row_vals dictionary 
-            row_vals = #### [YOUR CODE HERE] ####
-            row_vals['n_row'] = #### [YOUR CODE HERE] ####
+       for n_row, row in enumerate(open(self._fp, "r")):
+            row_vals = row.strip("\n").split(self._sep)
+            dict_row_i = dict(zip(self._col_names, row_vals))
+            dict_row_i["n_row"] = n_row.__str__()
 
-            # return results: 
-            #### [YOUR CODE HERE] ####
+            yield dict_row_i
     
     ######################################## YOUR CODE HERE ##################################################
 
